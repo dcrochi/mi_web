@@ -1,10 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi Web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tralingue | Traducción Italiano - Español</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #16213e, #0f3460);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #e94560;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hola mundo 🚀</h1>
-  <p>Mi primera web</p>
+
+<header>
+  <h1>Tralingue</h1>
+  <p>Traducción profesional Italiano ↔ Español</p>
+</header>
+
+<section class="hero">
+  <h2>Traducciones precisas y rápidas</h2>
+  <p>Especialistas en italiano y español para documentos, negocios y contenido digital.</p>
+  <a href="#contacto" class="btn">Contactar</a>
+</section>
+
+<section class="section">
+  <h2>Servicios</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Documentos</h3>
+      <p>Traducción de textos legales, académicos y personales.</p>
+    </div>
+    <div class="card">
+      <h3>Empresas</h3>
+      <p>Contenido corporativo, contratos y comunicación profesional.</p>
+    </div>
+    <div class="card">
+      <h3>Web & Marketing</h3>
+      <p>Adaptación de sitios web y contenido digital.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <h2>Contacto</h2>
+  <p>¿Necesitás una traducción? Escribinos:</p>
+  <p><strong>Email:</strong> contacto@tralingue.com</p>
+</section>
+
+<footer>
+  <p>© 2026 Tralingue - Todos los derechos reservados</p>
+</footer>
+
 </body>
 </html>
