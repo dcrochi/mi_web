@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Gracias · Tra Lingue</title>
+    <meta name="theme-color" content="#009246">
+    <link rel="icon" type="image/png" href="logo-tra-lingue.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --ita-green: #009246;
+            --ita-red: #CE2B37;
+            --ita-white: #F4F5F0;
+            --charcoal: #1D1D1B;
+            --pure-white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Jost', sans-serif;
+            color: var(--charcoal);
+            background-color: var(--pure-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        /* Preloader (opcional, lo mantenemos por coherencia) */
+        .preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--pure-white);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; transition: opacity 0.6s ease;
+        }
+        .preloader.hide { opacity: 0; visibility: hidden; }
+        .preloader-logo-img {
+            width: 560px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* Header pequeño (similar al original) */
+        header {
+            position: relative;
+            width: 100%;
+            padding: 8px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--ita-green);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-horizontal {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .header-logo-img {
+            height: 90px;
+            width: auto;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-family: 'Jost', sans-serif;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.2s;
+            margin-left: 40px;
+        }
+        .nav-links a:hover {
+            color: var(--ita-red);
+        }
+
+        /* Sección central de agradecimiento */
+        .gracias-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 24px;
+        }
+        .gracias-card {
+            max-width: 650px;
+            width: 100%;
+            background: white;
+            text-align: center;
+            padding: 60px 40px;
+            border-top: 5px solid var(--ita-green);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .gracias-card i {
+            font-size: 4rem;
+            color: var(--ita-green);
+            margin-bottom: 20px;
+        }
+        .gracias-card h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+        .gracias-card p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            margin-bottom: 35px;
+            color: #444;
+        }
+        .btn-volver {
+            display: inline-block;
+            background: var(--ita-green);
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-family: 'Jost', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-volver:hover {
+            background: var(--ita-red);
+            transform: translateY(-2px);
+        }
+
+        /* Footer idéntico al original */
+        footer {
+            border-top: 5px solid var(--ita-green);
+            padding: 60px 0;
+            background: var(--ita-white);
+            text-align: center;
+        }
+        .footer-logo-img {
+            width: 280px;
+            height: auto;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .italy-strip {
+            height: 10px;
+            display: flex;
+            width: 100%;
+            margin-top: 40px;
+        }
+        .s-green { background: var(--ita-green); flex: 1; }
+        .s-white { background: var(--pure-white); flex: 1; }
+        .s-red { background: var(--ita-red); flex: 1; }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 24px; }
+            .header-logo-img { height: 70px; }
+            .gracias-card { padding: 40px 24px; }
+            .gracias-card h1 { font-size: 2rem; }
+            .preloader-logo-img { width: 440px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Preloader (mismo efecto que en index) -->
+<div class="preloader" id="preloader">
+    <img src="logo-tra-lingue.png" alt="Tra Lingue" class="preloader-logo-img">
+</div>
+
+<!-- Header con navegación (para que el usuario pueda volver fácilmente) -->
+<header>
+    <div class="container nav">
+        <a href="index.html" class="logo-horizontal">
+            <img src="logo-tra-lingue.png" alt="Tra Lingue" class="header-logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="index.html#servicios">servicios</a>
+            <a href="index.html#quienes-somos">quienes somos</a>
+            <a href="index.html#contacto">contacto</a>
+        </div>
+    </div>
+</header>
+
+<main class="gracias-section">
+    <div class="gracias-card">
+        <i class="fas fa-check-circle"></i>
+        <h1>¡Muchas gracias!</h1>
+        <p>Tu mensaje ha sido enviado correctamente.<br>En menos de 24 horas recibirás una respuesta.</p>
+        <a href="index.html" class="btn-volver">← Volver al inicio</a>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <img src="logo-tra-lingue.png" alt="Tra Lingue" class="footer-logo-img">
+        <p style="font-weight: 300;">© 2026 Tra Lingue · Estudio de traducción · Buenos Aires</p>
+    </div>
+    <div class="italy-strip">
+        <div class="s-green"></div>
+        <div class="s-white"></div>
+        <div class="s-red"></div>
+    </div>
+</footer>
+
+<script>
+    // Preloader (igual que en el index)
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('preloader').classList.add('hide');
+        }, 600);
+    });
+</script>
+</body>
+</html>
