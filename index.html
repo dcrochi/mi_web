@@ -1,138 +1,425 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tralingue | Traducción Italiano - Español</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tra Lingue · Estudio Boutique de Traducción Español ↔ Italiano</title>
+    <meta name="description" content="Traducciones profesionales español-italiano en Buenos Aires y Roma. Especialistas en textos jurídicos, literarios, técnicos y financieros.">
+    <meta name="theme-color" content="#009246">
 
-    header {
-      background: #1a1a2e;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+    <link rel="icon" type="image/png" href="logo-tra-lingue.png">
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    header p {
-      margin-top: 10px;
-      color: #ccc;
-    }
+    <style>
+        :root {
+            --ita-green: #009246;
+            --ita-red: #CE2B37;
+            --ita-white: #F4F5F0;
+            --charcoal: #1D1D1B;
+            --pure-white: #FFFFFF;
+        }
 
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #16213e, #0f3460);
-      color: white;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Jost', sans-serif;
+            color: var(--charcoal);
+            background-color: var(--pure-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .hero h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
+        h1, h2, h3, h4, .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
 
-    .hero p {
-      font-size: 1.1em;
-      color: #ddd;
-    }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
 
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #e94560;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
+        /* ========== PRELOADER ========== */
+        .preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--pure-white);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; transition: opacity 0.6s ease;
+        }
+        .preloader.hide { opacity: 0; visibility: hidden; }
+        .preloader-logo-img {
+            width: 560px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
 
-    .section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
+        /* ========== NAVEGACIÓN ========== */
+        header {
+            position: fixed; top: 0; width: 100%; padding: 8px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--ita-green);
+            z-index: 100; transition: transform 0.3s ease;
+        }
+        header.hide-nav { transform: translateY(-100%); }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo-horizontal { display: flex; align-items: center; text-decoration: none; }
+        .header-logo-img { height: 90px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 40px; }
+        .nav-links a {
+            text-decoration: none; color: var(--charcoal);
+            font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 1px; transition: 0.2s;
+        }
+        .nav-links a:hover { color: var(--ita-red); }
+        .contact-link {
+            background: var(--ita-green); color: white !important;
+            padding: 10px 25px; border-radius: 4px; transition: 0.3s;
+        }
+        .contact-link:hover { background: var(--ita-red); }
 
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+        /* ========== HERO ========== */
+        .hero-section {
+            position: relative; padding: 220px 0 100px;
+            background-color: var(--charcoal); color: var(--pure-white); overflow: hidden;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('Gemini_Generated_Image_va45k5va45k5va45.png') center/cover no-repeat;
+            opacity: 0.1; z-index: 0;
+        }
+        .hero { display: flex; align-items: center; gap: 60px; position: relative; z-index: 1; }
+        .hero-content { flex: 1.2; }
+        .hero-badge {
+            display: inline-block; border-left: 3px solid var(--ita-red); padding-left: 15px;
+            font-family: 'Jost', sans-serif; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 2px; color: #ddd; margin-bottom: 30px;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; font-weight: 500; color: white;
+        }
+        .hero-highlight { color: var(--ita-green); border-bottom: 2px solid var(--ita-red); }
+        .hero-description {
+            font-size: 1.15rem; color: #e0e0e0; font-weight: 300;
+            border-left: 2px solid var(--ita-green); padding-left: 25px;
+            margin-bottom: 40px; max-width: 540px;
+        }
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
+        .btn-primary {
+            padding: 16px 35px; background: var(--ita-green); color: white;
+            text-decoration: none; display: inline-block; transition: 0.3s;
+            border: none; cursor: pointer; font-family: 'Jost', sans-serif;
+            font-size: 1rem; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 1px; border-radius: 4px;
+        }
+        .btn-primary:hover { background: var(--ita-red); transform: translateY(-2px); }
 
-    footer {
-      background: #1a1a2e;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-    }
+        /* ========== SECCIONES COMUNES ========== */
+        .section { padding: 100px 0; }
+        .section-title {
+            text-align: center; font-size: 2.2rem; margin-bottom: 60px;
+            position: relative; font-weight: 500;
+        }
+        .section-title:after {
+            content: ''; display: block; width: 60px; height: 3px;
+            background: var(--ita-red); margin: 20px auto;
+        }
 
-    @media (max-width: 600px) {
-      .services {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+        .card {
+            background: white; padding: 45px 35px; border-top: 3px solid var(--ita-green);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.3s;
+        }
+        .card:nth-child(even) { border-top-color: var(--ita-red); }
+        .card:hover { transform: translateY(-10px); }
+        .card-icon { font-size: 1.8rem; color: #666; margin-bottom: 20px; }
+        .btn-small {
+            background: none; border: none; border-bottom: 1px solid var(--ita-red);
+            padding: 4px 0; font-family: 'Jost', sans-serif; font-size: 0.75rem;
+            font-weight: 600; cursor: pointer; color: var(--ita-green);
+            text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+        }
+        .btn-small:hover { color: var(--ita-red); }
+
+        .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; }
+        .team-card { text-align: left; }
+        .team-photo {
+            width: 100%; height: 400px; object-fit: cover;
+            filter: saturate(0.7); transition: 0.5s; margin-bottom: 30px;
+        }
+        .team-card:hover .team-photo { filter: saturate(1); }
+        .team-photo-wrapper { position: relative; margin-bottom: 20px; }
+        .team-photo-wrapper::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(to right, var(--ita-green) 33.33%, var(--ita-white) 33.33%, var(--ita-white) 66.66%, var(--ita-red) 66.66%);
+        }
+        .team-card h4 { font-size: 1.5rem; margin-bottom: 10px; }
+        .team-card p { font-weight: 300; }
+
+        /* Ocultar temporalmente casos de éxito y testimonios */
+        #casos-exito, #testimonios {
+            display: none;
+        }
+
+        .cta-wrapper {
+            background: var(--ita-white); padding: 100px 48px; text-align: center; border: 1px solid #ddd;
+        }
+        .cta-wrapper h2 { margin-bottom: 20px; }
+
+        /* ========== MODAL & FORMULARIO ========== */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+            z-index: 1000; align-items: center; justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: linear-gradient(to right, var(--ita-green), var(--ita-white), var(--ita-red)) top / 100% 6px no-repeat, white;
+            max-width: 560px; width: 90%; padding: 44px; border: none; border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label {
+            display: block; margin-bottom: 8px; font-family: 'Jost', sans-serif;
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--ita-green);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            font-family: 'Jost', sans-serif;
+            width: 100%; padding: 12px 0; border: none;
+            border-bottom: 1px solid #ddd; border-radius: 0;
+            font-size: 1rem; transition: 0.2s; background: transparent;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none; border-bottom-color: var(--ita-green);
+        }
+
+        .modal-buttons { display: flex; gap: 15px; justify-content: flex-end; margin-top: 30px; }
+
+        .close-modal {
+            padding: 10px 25px; background: none; border: 1px solid #ddd;
+            cursor: pointer; font-family: 'Jost', sans-serif; font-size: 0.9rem;
+            font-weight: 500; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--charcoal); transition: 0.3s; border-radius: 4px;
+        }
+        .close-modal:hover { background: #f9f9f9; border-color: #bbb; }
+
+        .modal .btn-primary {
+            border-radius: 4px;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            border-top: 5px solid var(--ita-green); padding: 60px 0;
+            background: var(--ita-white); text-align: center;
+        }
+        .footer-logo-img { width: 280px; height: auto; margin-bottom: 20px; opacity: 0.9; }
+        .italy-strip { height: 10px; display: flex; width: 100%; margin-top: 40px; }
+        .s-green { background: var(--ita-green); flex: 1; }
+        .s-white { background: var(--pure-white); flex: 1; }
+        .s-red { background: var(--ita-red); flex: 1; }
+
+        @media (max-width: 900px) {
+            .cards-grid, .projects-grid, .team-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .hero-section { padding: 180px 0 80px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .testimonial-card { padding: 30px 25px; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 0 24px; }
+            .header-logo-img { height: 100px; }
+            .hero-content h1 { font-size: 2rem; }
+            .preloader-logo-img { width: 440px; }
+            .testimonial-quote { font-size: 1rem; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Tralingue</h1>
-  <p>Traducción profesional Italiano ↔ Español</p>
+<!-- Preloader con imagen PNG -->
+<div class="preloader" id="preloader">
+    <img src="logo-tra-lingue.png" alt="Tra Lingue" class="preloader-logo-img">
+</div>
+
+<!-- Header con logo grande pero angosto -->
+<header id="mainHeader">
+    <div class="container nav">
+        <a href="#home" class="logo-horizontal">
+            <img src="logo-tra-lingue.png" alt="Tra Lingue · Traducciones Argentina – Italia" class="header-logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="#servicios">servicios</a>
+            <a href="#quienes-somos">quienes somos</a>
+            <a href="#contacto" class="contact-link">contacto</a>
+        </div>
+    </div>
 </header>
 
-<section class="hero">
-  <h2>Traducciones precisas y rápidas</h2>
-  <p>Especialistas en italiano y español para documentos, negocios y contenido digital.</p>
-  <a href="#contacto" class="btn">Contactar</a>
-</section>
+<main>
+    <section id="home" class="hero-section">
+        <div class="container hero">
+            <div class="hero-content">
+                <div class="hero-badge">Excelencia en Traducción · Herencia Italiana</div>
+                <h1>Traducciones <span class="hero-highlight">español ↔ italiano</span> con rigor técnico.</h1>
+                <p class="hero-description">Traducimos con precisión técnica, literaria y cultural. Para que ningún concepto se pierda en el camino.</p>
+                <button class="btn-primary openModal">Solicitar presupuesto</button>
+            </div>
+        </div>
+    </section>
 
-<section class="section">
-  <h2>Servicios</h2>
-  <div class="services">
-    <div class="card">
-      <h3>Documentos</h3>
-      <p>Traducción de textos legales, académicos y personales.</p>
-    </div>
-    <div class="card">
-      <h3>Empresas</h3>
-      <p>Contenido corporativo, contratos y comunicación profesional.</p>
-    </div>
-    <div class="card">
-      <h3>Web & Marketing</h3>
-      <p>Adaptación de sitios web y contenido digital.</p>
-    </div>
-  </div>
-</section>
+    <section id="servicios" class="section container">
+        <div class="section-title">Especialidades</div>
+        <div class="cards-grid">
+            <div class="card"><i class="fas fa-gavel card-icon"></i><h3>Pública</h3><p>Todo lo que necesitas para tramitar tu ciudadanía italiana.</p><button class="btn-small openModal">Consultar →</button></div>
+            <div class="card"><i class="fas fa-book card-icon"></i><h3>Literaria</h3><p>Capturamos la esencia y el estilo del autor original.</p><button class="btn-small openModal">Consultar →</button></div>
+            <div class="card"><i class="fas fa-microchip card-icon"></i><h3>Técnica</h3><p>Manuales y patentes con rigor científico-técnico.</p><button class="btn-small openModal">Consultar →</button></div>
+            <div class="card"><i class="fas fa-chart-line card-icon"></i><h3>Financiera</h3><p>Balances y reportes para los mercados.</p><button class="btn-small openModal">Consultar →</button></div>
+            <div class="card"><i class="fas fa-globe card-icon"></i><h3>Localización</h3><p>Adaptación cultural para productos digitales.</p><button class="btn-small openModal">Consultar →</button></div>
+            <div class="card"><i class="fas fa-check-double card-icon"></i><h3>Revisión</h3><p>Control de calidad para textos de alta visibilidad.</p><button class="btn-small openModal">Consultar →</button></div>
+        </div>
+    </section>
 
-<section class="section" id="contacto">
-  <h2>Contacto</h2>
-  <p>¿Necesitás una traducción? Escribinos:</p>
-  <p><strong>Email:</strong> cecilia@tralingue.com.ar</p>
-</section>
+    <section id="quienes-somos" class="section container">
+        <div class="section-title">Quiénes Somos</div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-photo-wrapper"><img src="Ceci.png" alt="Cecilia Rossi" class="team-photo"></div>
+                <h4>María Cecilia González</h4><p>Traductora Pública en Italiano (Mat. 10.013 CTPCBA)</p><p>Traductora Cientifico-Literaria en Italiano</p><p>Lic. en Ciencia Política</p>
+            </div>
+            <div class="team-card">
+                <div class="team-photo-wrapper"><img src="Yamila.png" alt="Yamila Ferrero" class="team-photo"></div>
+                <h4>Yamila Verónica Grillo</h4><p>Traductora Pública en Italiano</p><p>Tesorera Colegio Cristoforo Colombo</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="casos-exito" class="section container">
+        <div class="section-title">Casos de Éxito</div>
+        <div class="projects-grid">
+            <div class="project-card"><h3>Acuerdo Binacional</h3><p>Tratados de cooperación energética entre Buenos Aires y Roma.</p></div>
+            <div class="project-card"><h3>Editorial "Luna"</h3><p>Versión en español de galardonada novela toscana.</p></div>
+            <div class="project-card"><h3>App Fintech Roma</h3><p>Localización completa para el mercado argentino.</p></div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="section container">
+        <div class="section-title">Lo que dicen nuestros clientes</div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Tra Lingue tradujo nuestro acuerdo de joint venture con una precisión que superó todas las expectativas. Cada cláusula mantuvo su fuerza legal y elegancia en ambos idiomas.</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Marco Bianchi">
+                    <div class="testimonial-info">
+                        <h4>Marco Bianchi</h4>
+                        <p>Director Legal · Bianchi & Associati, Roma</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">La sensibilidad literaria de Cecilia es extraordinaria. Mi novela ganó el premio Strega y su traducción al español conserva la misma alma, el mismo latido.</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Elena Ferrante">
+                    <div class="testimonial-info">
+                        <h4>Elena Ferrante</h4>
+                        <p>Autora · Editorial Luna, Florencia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Localizaron nuestra app financiera en tiempo récord y con un conocimiento impecable del mercado argentino. Ahora operamos sin fronteras.</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Luca Rossetti">
+                    <div class="testimonial-info">
+                        <h4>Luca Rossetti</h4>
+                        <p>CEO · Fintech Roma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section container">
+        <div class="cta-wrapper">
+            <h2>¿Iniciamos su proyecto?</h2>
+            <p style="margin: 20px 0; font-weight: 300;">Presupuestos personalizados en menos de 24 horas.</p>
+            <button class="btn-primary openModal">Obtener presupuesto hoy</button>
+        </div>
+    </section>
+</main>
 
 <footer>
-  <p>© 2026 Tralingue - Todos los derechos reservados</p>
+    <div class="container">
+        <img src="logo-tra-lingue.png" alt="Tra Lingue" class="footer-logo-img">
+        <p style="font-weight: 300;">© 2026 Tra Lingue · Estudio de traducción · Buenos Aires</p>
+    </div>
+    <div class="italy-strip">
+        <div class="s-green"></div><div class="s-white"></div><div class="s-red"></div>
+    </div>
 </footer>
 
+<!-- Modal con formulario integrado a FormSubmit -->
+<div id="budgetModal" class="modal">
+    <div class="modal-content">
+        <h3 style="font-family: 'Playfair Display', serif; color: var(--ita-green); margin-bottom: 10px;">Solicitud de Presupuesto</h3>
+        <p style="font-size: 0.85rem; margin-bottom: 25px; font-weight: 300;">Complete sus datos y le responderemos a la brevedad.</p>
+        <form action="https://formsubmit.co/cecilia@tralingue.com.ar" method="POST">
+            <!-- Campo para redirigir después del envío (vuelve a la misma página) -->
+            <input type="hidden" name="_next" value="https://tralingue.com.ar/gracias.html">
+            <!-- Para que puedas responder al cliente fácilmente -->
+            <input type="hidden" name="_replyto" value="email">
+            <!-- Asunto personalizado del correo -->
+            <input type="hidden" name="_subject" value="Nuevo presupuesto desde tralingue.com.ar">
+            <!-- Desactivar captcha (opcional, pero más amigable) -->
+            <input type="hidden" name="_captcha" value="false">
+            
+            <div class="form-group">
+                <label>Nombre Completo *</label>
+                <input type="text" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico *</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Especialidad</label>
+                <select name="especialidad">
+                    <option>Ciudadanía por descendencia</option>
+                    <option>Ciudadanía Matrimonio</option>
+                    <option>Inscripción de Nacimiento, Matrimonio, Divorcio o Defunción</option>
+                    <option>Documentación académica</option>
+                    <option>Otros</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mensaje</label>
+                <textarea name="mensaje" rows="2"></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="close-modal" id="closeModal">Cancelar</button>
+                <button type="submit" class="btn-primary" style="padding: 10px 25px;">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', () => { setTimeout(() => { document.getElementById('preloader').classList.add('hide'); }, 600); });
+    const modal = document.getElementById('budgetModal');
+    document.querySelectorAll('.openModal').forEach(btn => btn.addEventListener('click', () => modal.classList.add('active')));
+    document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('active'));
+    window.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('mainHeader');
+        if (window.pageYOffset > lastScroll && window.pageYOffset > 100) header.classList.add('hide-nav');
+        else header.classList.remove('hide-nav');
+        lastScroll = window.pageYOffset;
+    });
+</script>
 </body>
 </html>
