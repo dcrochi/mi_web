@@ -126,24 +126,94 @@
             background: var(--ita-red); margin: 20px auto;
         }
 
+        /* ========== ESPECIALIDADES ========== */
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
         .card {
             background: white; padding: 45px 35px; border-top: 3px solid var(--ita-green);
             box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.3s;
+            display: flex; flex-direction: column;
         }
         .card:nth-child(even) { border-top-color: var(--ita-red); }
         .card:hover { transform: translateY(-10px); }
         .card-icon { font-size: 1.8rem; color: #666; margin-bottom: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .card p { font-weight: 300; margin-bottom: 15px; }
+        .card-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
         .btn-small {
             background: none; border: none; border-bottom: 1px solid var(--ita-red);
             padding: 4px 0; font-family: 'Jost', sans-serif; font-size: 0.75rem;
             font-weight: 600; cursor: pointer; color: var(--ita-green);
             text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+            align-self: flex-start;
         }
         .btn-small:hover { color: var(--ita-red); }
 
+        /* Caja destacada Nuestro plus (fuera del grid) */
+        .card-plus {
+            background: white;
+            padding: 45px 35px;
+            border-top: 3px solid var(--ita-green);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 35px;
+            text-align: center;
+        }
+        .card-plus:hover {
+            transform: translateY(-5px);
+        }
+        .card-plus h3 {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            color: var(--ita-green);
+        }
+        .card-plus h4 {
+            font-size: 1.2rem;
+            font-family: 'Jost', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--ita-red);
+        }
+        .card-plus p {
+            font-size: 1rem;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--charcoal);
+        }
+        .card-plus .btn-small {
+            margin-top: 20px;
+            align-self: center;
+        }
+
+        /* ========== QUIÉNES SOMOS ========== */
+        .about-section {
+            padding: 28px 0 100px 0;   /* menos espacio arriba, el mismo abajo */
+            background-color: var(--pure-white);
+        }
+        .about-section .section-title {
+            margin-bottom: 20px;
+        }
+        .about-text {
+            max-width: 1000px;
+            margin: 0 auto 50px auto;
+            font-size: 1.34rem;
+            line-height: 1.5;
+            text-align: justify;
+            color: var(--charcoal);
+            font-weight: 400;
+            hyphens: auto;
+        }
+
         .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; }
-        .team-card { text-align: left; }
+        .team-card { text-align: left; margin-bottom: 20px; }
         .team-photo {
             width: 100%; height: 400px; object-fit: cover;
             filter: saturate(0.7); transition: 0.5s; margin-bottom: 30px;
@@ -155,7 +225,20 @@
             background: linear-gradient(to right, var(--ita-green) 33.33%, var(--ita-white) 33.33%, var(--ita-white) 66.66%, var(--ita-red) 66.66%);
         }
         .team-card h4 { font-size: 1.5rem; margin-bottom: 10px; }
-        .team-card p { font-weight: 300; }
+        .team-card p { font-weight: 300; margin-bottom: 5px; }
+
+        /* Biografías */
+        .team-bio {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            font-family: 'Jost', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: justify;
+            color: #4a4a4a;
+            font-weight: 400;
+        }
 
         /* Ocultar temporalmente casos de éxito y testimonios */
         #casos-exito, #testimonios {
@@ -225,28 +308,45 @@
         .s-red { background: var(--ita-red); flex: 1; }
 
         @media (max-width: 900px) {
-            .cards-grid, .projects-grid, .team-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
             .hero-section { padding: 180px 0 80px; }
             .hero-content h1 { font-size: 2.5rem; }
-            .testimonial-card { padding: 30px 25px; }
+            .about-text { font-size: 1.1rem; }
+            .team-bio { font-size: 0.9rem; margin-top: 20px; padding-top: 15px; }
+            .team-grid { grid-template-columns: 1fr; gap: 30px; }
+            .card-plus { margin-top: 20px; }
+            .btn-small { align-self: center; }
         }
         @media (max-width: 600px) {
             .container { padding: 0 24px; }
             .header-logo-img { height: 100px; }
             .hero-content h1 { font-size: 2rem; }
             .preloader-logo-img { width: 440px; }
-            .testimonial-quote { font-size: 1rem; }
+            .about-text { font-size: 1rem; }
+            .team-bio { font-size: 0.85rem; }
+            .card-plus {
+                padding: 30px 20px;
+            }
+            .card-plus h3 {
+                font-size: 1.5rem;
+            }
+            .card-plus h4 {
+                font-size: 1rem;
+            }
+            .card-description {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- Preloader con imagen PNG -->
+<!-- Preloader -->
 <div class="preloader" id="preloader">
     <img src="./logo-tra-lingue.png" alt="Tra Lingue" class="preloader-logo-img">
 </div>
 
-<!-- Header con logo grande pero angosto -->
+<!-- Header -->
 <header id="mainHeader">
     <div class="container nav">
         <a href="#home" class="logo-horizontal">
@@ -265,8 +365,8 @@
         <div class="container hero">
             <div class="hero-content">
                 <div class="hero-badge">Excelencia en Traducción · Herencia Italiana</div>
-                <h1>Traducciones <span class="hero-highlight">español ↔ italiano</span> con rigor técnico.</h1>
-                <p class="hero-description">Traducimos con precisión técnica, literaria y cultural. Para que ningún concepto se pierda en el camino.</p>
+                <h1>Traducciones <span class="hero-highlight">español ↔ italiano</span><p style="font-size: 0.75em; margin-top: 0.75rem;">Unimos tus proyectos que trascienden fronteras</p></h1>
+                <p class="hero-description">Traducimos con la precisión de profesionales y la pasión de quienes llevan el idioma en el ADN. Para que la esencia del mensaje permanezca intacta y no se pierda en el camino.</p>
                 <button class="btn-primary openModal">Solicitar presupuesto</button>
             </div>
         </div>
@@ -275,29 +375,123 @@
     <section id="servicios" class="section container">
         <div class="section-title">Especialidades</div>
         <div class="cards-grid">
-            <div class="card"><i class="fas fa-gavel card-icon"></i><h3>Pública</h3><p>Todo lo que necesitas para tramitar tu ciudadanía italiana y/o estudiar en Italia.</p><button class="btn-small openModal">Consultar →</button></div>
-            <div class="card"><i class="fas fa-book card-icon"></i><h3>Literaria</h3><p>Capturamos la esencia y el estilo del autor original.</p><button class="btn-small openModal">Consultar →</button></div>
-            <div class="card"><i class="fas fa-microchip card-icon"></i><h3>Técnica</h3><p>Manuales y patentes con rigor científico-técnico.</p><button class="btn-small openModal">Consultar →</button></div>
-            <div class="card"><i class="fas fa-chart-line card-icon"></i><h3>Financiera</h3><p>Balances y reportes para los mercados.</p><button class="btn-small openModal">Consultar →</button></div>
-            <div class="card"><i class="fas fa-globe card-icon"></i><h3>Localización</h3><p>Adaptación cultural para productos digitales.</p><button class="btn-small openModal">Consultar →</button></div>
-            <div class="card"><i class="fas fa-check-double card-icon"></i><h3>Revisión</h3><p>Control de calidad para textos de alta visibilidad.</p><button class="btn-small openModal">Consultar →</button></div>
+            <!-- Pública -->
+            <div class="card">
+                <i class="fas fa-gavel card-icon"></i>
+                <h3>Pública</h3>
+                <p>Todo lo que necesitas para tramitar tu ciudadanía italiana y/o estudiar en Italia.</p>
+                <div class="card-description">
+                    Brindamos validez legal a sus documentos. Como traductoras matriculadas, realizamos traducciones con firma y sello oficial para actas de nacimiento, matrimonio, títulos académicos y contratos. Un servicio indispensable para que sus trámites tengan plena vigencia ante organismos públicos y consulados.
+                </div>
+                <button class="btn-small openModal" data-especialidad="Pública">Consultar →</button>
+            </div>
+            <!-- Literaria -->
+            <div class="card">
+                <i class="fas fa-book card-icon"></i>
+                <h3>Literaria</h3>
+                <p>Capturamos la esencia y el estilo del autor original.</p>
+                <div class="card-description">
+                    Abordamos cada obra con sensibilidad artística. Traducimos narrativa, ensayos y poesía, trabajando en conjunto para capturar el ritmo, la voz del autor y los matices culturales que hacen que una historia cobre vida en un nuevo idioma.
+                </div>
+                <button class="btn-small openModal" data-especialidad="Literaria">Consultar →</button>
+            </div>
+            <!-- Técnica -->
+            <div class="card">
+                <i class="fas fa-microchip card-icon"></i>
+                <h3>Técnica</h3>
+                <p>Manuales y patentes con rigor científico-técnico.</p>
+                <div class="card-description">
+                    La precisión es nuestro estándar. Nos especializamos en manuales, informes de ingeniería y textos científicos donde la terminología exacta es fundamental. Nuestra metodología de revisión cruzada asegura resultados libres de ambigüedades.
+                </div>
+                <button class="btn-small openModal" data-especialidad="Técnica">Consultar →</button>
+            </div>
+            <!-- Financiera -->
+            <div class="card">
+                <i class="fas fa-chart-line card-icon"></i>
+                <h3>Financiera</h3>
+                <p>Balances y reportes para los mercados.</p>
+                <div class="card-description">
+                    Claridad para tus negocios internacionales. Gestionamos balances, auditorías y documentación bancaria con total confidencialidad, dominando el lenguaje técnico de los mercados y las normativas vigentes en ambos países.
+                </div>
+                <button class="btn-small openModal" data-especialidad="Financiera">Consultar →</button>
+            </div>
+            <!-- Localización -->
+            <div class="card">
+                <i class="fas fa-globe card-icon"></i>
+                <h3>Localización</h3>
+                <p>Adaptación cultural para productos digitales.</p>
+                <div class="card-description">
+                    Adaptamos la presencia digital al mercado de destino. Ya sea un sitio web o una aplicación, ajustamos no solo el idioma, sino también el contexto cultural y los modismos para que tu mensaje resuene de forma natural y efectiva.
+                </div>
+                <button class="btn-small openModal" data-especialidad="Localización">Consultar →</button>
+            </div>
+            <!-- Revisión -->
+            <div class="card">
+                <i class="fas fa-check-double card-icon"></i>
+                <h3>Revisión</h3>
+                <p>Control de calidad para textos de alta visibilidad.</p>
+                <div class="card-description">
+                    Ofrecemos una mirada experta sobre textos ya traducidos. Optimizamos la fluidez, corregimos la gramática y unificamos criterios terminológicos para garantizar que el producto final alcance la excelencia profesional.
+                </div>
+                <button class="btn-small openModal" data-especialidad="Revisión">Consultar →</button>
+            </div>
+        </div>
+
+        <!-- Caja ancha Nuestro plus -->
+        <div class="card-plus">
+            <h3>Nuestro plus</h3>
+            <h4>Acompañamiento en Trámites de Ciudadanía</h4>
+            <p>Sabemos que armar una carpeta para la ciudadanía italiana puede ser un proceso abrumador. Por eso, ofrecemos un servicio integral de traducción y asesoría técnica. Nos aseguramos de que cada documento cumpla con los requisitos consulares, cuidando la coherencia de toda la documentación para que su camino hacia el reconocimiento de tus raíces sea exitoso.</p>
+            <button class="btn-small openModal" data-especialidad="Nuestro Plus">Consultar →</button>
         </div>
     </section>
 
-    <section id="quienes-somos" class="section container">
-        <div class="section-title">Quiénes Somos</div>
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-photo-wrapper"><img src="./Ceci.png" alt="Cecilia Gonzalez" class="team-photo"></div>
-                <h4>María Cecilia González</h4><p>Traductora Pública en Italiano (Mat. 10.013 CTPCBA)</p><p>Traductora Cientifico-Literaria en Italiano</p><p>Licenciada en Ciencia Política</p><p>cecilia@tralingue.com.ar</p>
-            </div>
-            <div class="team-card">
-                <div class="team-photo-wrapper"><img src="./Yamila.png" alt="Yamila Grillo" class="team-photo"></div>
-                <h4>Yamila Verónica Grillo</h4><p>Traductora Pública en Italiano</p><p>Tesorera Colegio Cristoforo Colombo</p><p>yamila@tralingue.com.ar</p>
+    <section id="quienes-somos" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Quiénes somos</h2>
+            <p class="about-text">
+                Somos María Cecilia González y Yamila Verónica Grillo, dos traductoras unidas por una pasión compartida: 
+                la búsqueda de la precisión absoluta entre dos idiomas que llevamos en la sangre.
+            </p>
+            <div class="team-grid">
+                <!-- Cecilia -->
+                <div class="team-card">
+                    <div class="team-photo-wrapper"><img src="./Ceci.png" alt="Cecilia Gonzalez" class="team-photo"></div>
+                    <h4>María Cecilia González</h4>
+                    <p>Traductora Pública en Italiano (Mat. 10.013 CTPCBA)</p>
+                    <p>Traductora Cientifico-Literaria en Italiano</p>
+                    <p>Licenciada en Ciencia Política</p>
+                    <p>cecilia@tralingue.com.ar</p>
+                    
+                    <div class="team-bio">
+                        Soy María Cecilia González, y mi historia con Italia empezó mucho antes de mi primer viaje en 1999. Como nieta de italianos, crecí con ese eco lejano de una tierra que, al conocerla, sentí inmediatamente propia e Italia dejó de ser un destino para transformarse en mi segundo hogar. Ese vínculo me llevó a volver una y otra vez, convirtiendo la curiosidad en una pasión y, finalmente, en mi profesión.<br><br>
+                        Mi lazo familiar me impulsó a buscar la máxima precisión en el idioma. Tras años de perfeccionamiento, la pandemia fue el impulso final para profesionalizar mi pasión: me formé como traductora científica-literaria y traductora pública. No solo traduzco palabras; traduzco historias y proyectos. Ya sea que necesites una traducción pública con validez legal o el acompañamiento técnico para tu ciudadanía italiana.<br><br>
+                        Hoy, junto a Yamila, pensamos que la fidelidad al original es innegociable. Cada texto tiene una intención y cada documento, una historia. Nuestro compromiso es que, al trabajar juntos, encuentres una comunicación fluida y humana, donde la técnica y el corazón se unan para que tus proyectos lleguen exactamente a donde tienen que llegar.<br><br>🇮🇹 🤝🏻 🇦🇷
+                    </div>
+                </div>
+
+                <!-- Yamila -->
+                <div class="team-card">
+                    <div class="team-photo-wrapper"><img src="./Yamila.png" alt="Yamila Grillo" class="team-photo"></div>
+                    <h4>Yamila Verónica Grillo</h4>
+                    <p>Traductora Pública en Italiano</p>
+                    <p>Tesorera Colegio Cristoforo Colombo</p>
+                    <p>yamila@tralingue.com.ar</p>
+                    <p>&nbsp;</p> 
+                    
+                    <div class="team-bio">
+                        Soy Yamila Verónica Grillo, argentina y tengo 45 años.
+                        Hace más de 20 años que mi vida está profundamente ligada a la lengua italiana. Lo que comenzó como una simple curiosidad se transformó en una pasión y, con el tiempo, en mi camino profesional y también personal.<br><br>
+                        La cultura italiana es una parte esencial de quién soy. Desde hace 18 años formo parte de la Escuela Cristóforo Colombo, un espacio en el que crecí tanto a nivel profesional como cultural. Allí pude transformar mi amor por el idioma en una vocación, y comprender que traducir no es solo trabajar con palabras: es transmitir una cultura, una sensibilidad, una forma de ver el mundo.<br><br>
+                        Hoy, junto a Cecilia, pongo todo ese recorrido y esa experiencia a tu servicio. No se trata solo de traducir, sino de ofrecer una verdadera conexión con la riqueza de la cultura italiana, con compromiso, profesionalismo y una pasión que se siente en cada proyecto.<br><br>
+                        Bienvenidos a este puente entre idiomas y culturas. 🇮🇹 🤝🏻 🇦🇷
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Secciones ocultas (casos de éxito y testimonios) -->
     <section id="casos-exito" class="section container">
         <div class="section-title">Casos de Éxito</div>
         <div class="projects-grid">
@@ -345,7 +539,7 @@
 
     <section id="contacto" class="section container">
         <div class="cta-wrapper">
-            <h2>¿Iniciamos su proyecto?</h2>
+            <h2>¿Iniciamos tu proyecto?</h2>
             <p style="margin: 20px 0; font-weight: 300;">Presupuestos personalizados en menos de 24 horas.</p>
             <button class="btn-primary openModal">Obtener presupuesto hoy</button>
         </div>
@@ -362,19 +556,15 @@
     </div>
 </footer>
 
-<!-- Modal con formulario integrado a FormSubmit -->
+<!-- Modal -->
 <div id="budgetModal" class="modal">
     <div class="modal-content">
         <h3 style="font-family: 'Playfair Display', serif; color: var(--ita-green); margin-bottom: 10px;">Solicitud de Presupuesto</h3>
         <p style="font-size: 0.85rem; margin-bottom: 25px; font-weight: 300;">Complete sus datos y le responderemos a la brevedad.</p>
         <form action="https://formsubmit.co/cecilia@tralingue.com.ar" method="POST">
-            <!-- Campo para redirigir después del envío (vuelve a la misma página) -->
             <input type="hidden" name="_next" value="https://www.tralingue.com.ar/gracias.html">
-            <!-- Para que puedas responder al cliente fácilmente -->
             <input type="hidden" name="_replyto" value="email">
-            <!-- Asunto personalizado del correo -->
             <input type="hidden" name="_subject" value="Nuevo presupuesto desde tralingue.com.ar">
-            <!-- Desactivar captcha (opcional, pero más amigable) -->
             <input type="hidden" name="_captcha" value="false">
             
             <div class="form-group">
@@ -394,6 +584,7 @@
                     <option>Financiera</option>
                     <option>Localización</option>
                     <option>Revisión</option>
+                    <option>Nuestro Plus</option>
                     <option>Otros</option>
                 </select>
             </div>
@@ -411,10 +602,26 @@
 
 <script>
     window.addEventListener('load', () => { setTimeout(() => { document.getElementById('preloader').classList.add('hide'); }, 600); });
+    
     const modal = document.getElementById('budgetModal');
-    document.querySelectorAll('.openModal').forEach(btn => btn.addEventListener('click', () => modal.classList.add('active')));
+    
+    // Abrir modal y precargar especialidad según el botón clickeado
+    document.querySelectorAll('.openModal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const especialidad = btn.getAttribute('data-especialidad');
+            if (especialidad) {
+                const selectEspecialidad = document.querySelector('select[name="especialidad"]');
+                if (selectEspecialidad) {
+                    selectEspecialidad.value = especialidad;
+                }
+            }
+            modal.classList.add('active');
+        });
+    });
+    
     document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('active'));
     window.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+    
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
         const header = document.getElementById('mainHeader');
